@@ -1,0 +1,7 @@
+ManifestFileVersion: 0
+CRC: 3116929705
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: redfox
+      Dependencies: {}
