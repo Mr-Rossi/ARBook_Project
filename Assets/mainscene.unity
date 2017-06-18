@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 506711613}
   - component: {fileID: 506711616}
   - component: {fileID: 506711617}
+  - component: {fileID: 506711618}
   m_Layer: 0
   m_Name: TopPlane
   m_TagString: Untagged
@@ -673,6 +674,21 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
+--- !u!114 &506711618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 506711611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23610d1e641f2a4e91b0d3bdffdd1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeElement: 0
+  currentMetaData:
+    Url: 
+    Type: 0
 --- !u!1001 &507171600
 Prefab:
   m_ObjectHideFlags: 0
@@ -871,6 +887,7 @@ GameObject:
   - component: {fileID: 623830775}
   - component: {fileID: 623830778}
   - component: {fileID: 623830779}
+  - component: {fileID: 623830780}
   m_Layer: 0
   m_Name: BottomPlane
   m_TagString: Untagged
@@ -1054,6 +1071,21 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
+--- !u!114 &623830780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 623830773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23610d1e641f2a4e91b0d3bdffdd1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeElement: 0
+  currentMetaData:
+    Url: 
+    Type: 0
 --- !u!1 &709341509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2284,6 +2316,7 @@ GameObject:
   - component: {fileID: 1845929357}
   - component: {fileID: 1845929356}
   - component: {fileID: 1845929360}
+  - component: {fileID: 1845929361}
   m_Layer: 0
   m_Name: SidePlane
   m_TagString: Untagged
@@ -2467,6 +2500,21 @@ VideoPlayer:
   m_Looping: 0
   m_WaitForFirstFrame: 0
   m_FrameReadyEventEnabled: 0
+--- !u!114 &1845929361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1845929354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a23610d1e641f2a4e91b0d3bdffdd1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeElement: 0
+  currentMetaData:
+    Url: 
+    Type: 0
 --- !u!1 &1850296363 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 146090, guid: 7b4d558ce607ad842ae11dd4c2d88ba3, type: 2}
