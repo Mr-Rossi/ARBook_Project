@@ -21,8 +21,12 @@ public class MetaInformationRenderer : MonoBehaviour
 		
 	}
 
-    public void loadMetaData(PageMetaData pageData)
+    public void loadMetaData(PageMetaData pageData, bool isLeft = true)
     {
+        if(isLeft)
+            sidePanel.transform.localPosition = new Vector3(12,0,0);
+        else
+            sidePanel.transform.localPosition = new Vector3(-12, 0, 0);
         StartCoroutine(initializePanel(topPanel, pageData.TopElement));
         StartCoroutine(initializePanel(bottomPanel, pageData.BottomElement));
         StartCoroutine(initializePanel(sidePanel, pageData.SideElement));

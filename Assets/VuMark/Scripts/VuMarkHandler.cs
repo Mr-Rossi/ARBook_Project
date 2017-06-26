@@ -244,7 +244,7 @@ public class VuMarkHandler : MonoBehaviour
                         //StartCoroutine(bhvr.GetComponentInChildren<BrowserMaterialComponent>().LoadContent());
                         bhvr.GetComponentInChildren<MeshRenderer>().material.mainTexture =
                             mTextures[vuMarkInt + mTexOffset];
-                        bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset]);
+                        bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset], (vuMarkInt + mTexOffset)%2==0);
                         updatedBehaviours.Add(bhvr);
                     }
                 }
