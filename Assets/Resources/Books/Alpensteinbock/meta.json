@@ -1,0 +1,82 @@
+{
+	"Pages": [{
+			"TopElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Steinbock_2006_08_2.jpg",
+				"Type": 0
+			},
+			"BottomElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Capra_ibex_06_MWNH_1078.jpg",
+				"Type": 0
+			},
+			"SideElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Steinwild_Augstmatthorn.ogv",
+				"Type": 2
+			}
+		}, {
+			"TopElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"BottomElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"SideElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Wappen_Graub%C3%BCnden_matt.svg/2000px-Wappen_Graub%C3%BCnden_matt.svg.png",
+				"Type": 0
+			}
+		}, {
+			"TopElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"BottomElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"SideElement": {
+				"Url": "https://de.wikipedia.org/wiki/Datei:Alpine_Ibex_feb08a.jpg",
+				"Type": 0
+			}
+		}, {
+			"TopElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"BottomElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"SideElement": {
+				"Url": "",
+				"Type": 5
+			}
+		}, {
+			"TopElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"BottomElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"SideElement": {
+				"Url": "",
+				"Type": 5
+			}
+		}, {
+			"TopElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"BottomElement": {
+				"Url": "",
+				"Type": 5
+			},
+			"SideElement": {
+				"Url": "",
+				"Type": 5
+			}
+		}
+	]
+}

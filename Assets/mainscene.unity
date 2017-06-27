@@ -280,8 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d404d444c0d96347b98ea0856ae103e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ebookPath: Books/LimitlessAdventures/
-  pageName: page
+  ebookPath: Books/Alpensteinbock/
+  pageName: alpensteinbock_ar-
   metaName: meta
   mTexOffset: 0
   updatedBehaviours: []
