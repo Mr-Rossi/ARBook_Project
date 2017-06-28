@@ -33,8 +33,9 @@ public class ARMediator : MonoBehaviour
                     Debug.Log("Gameobject loaded:"+go.name);
                     GameObject instance = Instantiate(go);
                     instance.transform.SetParent(parent);
-                    instance.transform.localPosition = Vector3.zero;
-                    instance.transform.localScale = Vector3.one;
+                    instance.transform.localRotation = Quaternion.Euler(Vector3.right * 180);
+                    instance.transform.localPosition = Vector3.down * 5 + Vector3.forward * 5;
+                    instance.transform.localScale = Vector3.one*3;
 
                     //go.transform.SetParent(parent);
                     //SetTrackableGameObject(go);

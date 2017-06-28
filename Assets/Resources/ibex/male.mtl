@@ -1,0 +1,54 @@
+
+newmtl Material.000001
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd male.png
+
+
+newmtl Material.0000b3
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd malem.png
+
+
+newmtl Material.0000b9
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd male.png
+
+
+newmtl Material.0001f3
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd malem.png
+
+
+newmtl Material.0001fc
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd male.png
+
+
+newmtl Material.00040e
+Ka 1 1 1
+Kd 1 1 1
+Ks 0.9 0.9 0.9
+d 1
+Ns 1
+map_Kd malem.png
+

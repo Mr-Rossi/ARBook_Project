@@ -14,12 +14,12 @@
 			}
 		}, {
 			"TopElement": {
-				"Url": "",
-				"Type": 5
+				"Url": "ibex",
+				"Type": 4
 			},
 			"BottomElement": {
-				"Url": "",
-				"Type": 5
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Der_Hoelle_Rache.ogg",
+				"Type": 1
 			},
 			"SideElement": {
 				"Url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Wappen_Graub%C3%BCnden_matt.svg/2000px-Wappen_Graub%C3%BCnden_matt.svg.png",

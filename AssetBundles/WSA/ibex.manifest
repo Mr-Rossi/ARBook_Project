@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1684308645
+CRC: 2571405217
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: e7f698099c716ead48d1bd9106fdd7b9
+    Hash: 4f17d12a0045829b104a052895b883e3
   TypeTreeHash:
     serializedVersion: 2
     Hash: 0c82588165770fca3984d1966ac835ce
@@ -28,6 +28,5 @@ ClassTypes:
 - Class: 205
   Script: {instanceID: 0}
 Assets:
-- Assets/Resources/RedFox.obj
 - Assets/Resources/ibex/ibex.prefab
 Dependencies: []

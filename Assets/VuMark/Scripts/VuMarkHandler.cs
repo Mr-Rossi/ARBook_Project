@@ -65,12 +65,12 @@ public class VuMarkHandler : MonoBehaviour
                 }
         }
 
-        Debug.Log("Pages" + mTextures.Count);
+        //Debug.Log("Pages" + mTextures.Count);
 
         //ebookMetaData = JsonUtility.FromJson<EbookMetaData>(File.ReadAllText(ebookMetaDataPath));
         ebookMetaData = JsonUtility.FromJson<EbookMetaData>(Resources.Load<TextAsset>(ebookPath+metaName).text);
 
-        Debug.Log(ebookMetaData.Pages[0].TopElement.Url+ ebookMetaData.Pages[0].TopElement.Type);
+        //Debug.Log(ebookMetaData.Pages[0].TopElement.Url+ ebookMetaData.Pages[0].TopElement.Type);
 
         /*ElementMetaData element1 = new ElementMetaData
         {
@@ -151,7 +151,8 @@ public class VuMarkHandler : MonoBehaviour
     /// </summary>
     public void OnVuMarkDetected(VuMarkTarget target)
     {
-        Debug.Log("New VuMark: " + GetVuMarkString(target));
+        //Debug.Log("New VuMark: " + GetVuMarkString(target));
+        updatedBehaviours.Clear();
     }
 
     /// <summary>
@@ -163,6 +164,7 @@ public class VuMarkHandler : MonoBehaviour
 
         if (target == mCurrentVuMark)
             mIdPanel.ResetShowTrigger();
+        updatedBehaviours.Clear();
     }
 
     #endregion // PUBLIC_METHODS
@@ -217,11 +219,8 @@ public class VuMarkHandler : MonoBehaviour
     {
         Camera cam = DigitalEyewearARController.Instance.PrimaryCamera ?? Camera.main;
 
-        float closestDistance = Mathf.Infinity;
-
-        if (updatedBehaviours.Count<2)
+        //if (updatedBehaviours.Count<2)
         {
-            bool didStuff = false;
             foreach (var bhvr in mVuMarkManager.GetActiveBehaviours())
             {
                 if (!updatedBehaviours.Contains(bhvr))
@@ -234,9 +233,8 @@ public class VuMarkHandler : MonoBehaviour
                     var vuMarkImage = GetVuMarkImage(mClosestVuMark);
 
                     //Debug.Log("VuMarkBeh:"+bhvr.GetHashCode());
-                    Debug.Log("VDL: " + vuMarkId.Length);
-                    Debug.Log("VuMarkData: '" + vuMarkId[0] + "'" + vuMarkId[1] + "'" + vuMarkId[2] + "'" + vuMarkId[3] +
-                              "'");
+                    //Debug.Log("VDL: " + vuMarkId.Length);
+                    //Debug.Log("VuMarkData: '" + vuMarkId[0] + "'" + vuMarkId[1] + "'" + vuMarkId[2] + "'" + vuMarkId[3] +"'");
                     int vuMarkInt;
                     if (Int32.TryParse(vuMarkId, out vuMarkInt))
                     {
@@ -244,7 +242,7 @@ public class VuMarkHandler : MonoBehaviour
                         //StartCoroutine(bhvr.GetComponentInChildren<BrowserMaterialComponent>().LoadContent());
                         bhvr.GetComponentInChildren<MeshRenderer>().material.mainTexture =
                             mTextures[vuMarkInt + mTexOffset];
-                        bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset], (vuMarkInt + mTexOffset)%2==0);
+                        bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset]/*, (vuMarkInt + mTexOffset)%2==0*/);
                         updatedBehaviours.Add(bhvr);
                     }
                 }

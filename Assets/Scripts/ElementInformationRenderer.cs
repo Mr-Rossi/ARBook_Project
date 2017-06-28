@@ -6,6 +6,7 @@ using UnityEngine.Video;
 
 public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
 {
+    private const string ASSET_BUNDLE_NAME = "redfox";
     public bool activeElement = false;
     public ElementMetaData currentMetaData;
 
@@ -87,7 +88,7 @@ public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
             case ElementType.AUDIO:
                 GetComponentInChildren<TextMesh>().text = elementData.Url;
                 GetComponent<AudioSource>().clip = www.GetAudioClip();
-                //GetComponent<AudioSource>().Play();
+                GetComponent<AudioSource>().Play();
                 break;
             case ElementType.VIDEO: //TODO find out why audio is not working
                 VideoPlayer vp = GetComponent<VideoPlayer>();
@@ -96,22 +97,22 @@ public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
                 vp.EnableAudioTrack(0, true);
                 vp.SetTargetAudioSource(0, audios);
                 vp.Prepare();
-                //vp.Play();
-                //audios.Play();
+                vp.Play();
+                audios.Play();
                 break;
             case ElementType.TEXT:
                 GetComponentInChildren<TextMesh>().text = www.text;
                 break;
             case ElementType.ASSET:
                 GetComponent<MeshRenderer>().enabled = false;
-                FindObjectOfType<ARMediator>().LoadTrackedObject("redfox", elementData.Url, transform);
+                FindObjectOfType<ARMediator>().LoadTrackedObject(ASSET_BUNDLE_NAME, elementData.Url, transform);
                 break;
         }
     }
 
     void cleanPanel()
     {
-        activeElement = false;
+        activeElement = true;
         GetComponent<Renderer>().enabled = true;
         GetComponentInChildren<TextMesh>().text = "";
         GetComponent<Renderer>().material.mainTexture = null;

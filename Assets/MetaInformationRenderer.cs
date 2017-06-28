@@ -21,19 +21,19 @@ public class MetaInformationRenderer : MonoBehaviour
 		
 	}
 
-    public void loadMetaData(PageMetaData pageData, bool isLeft = true)
+    public void loadMetaData(PageMetaData pageData/*, bool isLeft = true*/)
     {
-        if(isLeft)
-            sidePanel.transform.localPosition = new Vector3(12,0,0);
-        else
-            sidePanel.transform.localPosition = new Vector3(-12, 0, 0);
+        //if(isLeft)
+        //    sidePanel.transform.localPosition = new Vector3(12,0,0);
+        //else
+        //    sidePanel.transform.localPosition = new Vector3(-12, 0, 0);
         StartCoroutine(initializePanel(topPanel, pageData.TopElement));
         StartCoroutine(initializePanel(bottomPanel, pageData.BottomElement));
         StartCoroutine(initializePanel(sidePanel, pageData.SideElement));
     }
     IEnumerator initializePanel(GameObject panel, ElementMetaData elementData)
     {
-        Debug.Log("initializing panel?");
+        //Debug.Log("initializing panel?");
         if (elementData.Type == ElementType.NONE)
         {
             panel.SetActive(false);
