@@ -152,6 +152,8 @@ public class VuMarkHandler : MonoBehaviour
     public void OnVuMarkDetected(VuMarkTarget target)
     {
         //Debug.Log("New VuMark: " + GetVuMarkString(target));
+        foreach (VuMarkAbstractBehaviour vb in updatedBehaviours)
+            vb.gameObject.SetActive(false);
         updatedBehaviours.Clear();
     }
 

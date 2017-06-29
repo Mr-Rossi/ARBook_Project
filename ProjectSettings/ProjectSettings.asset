@@ -11,7 +11,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: Mr_Rossi
-  productName: ARBook_v2
+  productName: ARBook
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13333334, g: 0.17254902, b: 0.21176471, a: 1}
@@ -516,14 +516,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: ARBookv2
+  metroPackageName: ARBook
   metroPackageVersion: 1.0.0.0
   metroCertificatePath: Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
   metroCertificateSubject: Mr_Rossi
   metroCertificateIssuer: Mr_Rossi
   metroCertificateNotAfter: 801e4ebc10eed301
-  metroApplicationDescription: ARBook_v2
+  metroApplicationDescription: ARBook
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
