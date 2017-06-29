@@ -21,6 +21,7 @@ public struct ElementMetaData
 {
     public string Url;
     public ElementType Type;
+    public string Text;
 }
 [Serializable]
 public enum ElementType

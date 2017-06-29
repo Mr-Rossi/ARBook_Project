@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Video;
+using HoloToolkit.Unity.InputModule;
 
-public class MetaInformationRenderer : MonoBehaviour
+public class MetaInformationRenderer : MonoBehaviour, IInputClickHandler
 {
 
     public GameObject topPanel;
@@ -21,7 +21,12 @@ public class MetaInformationRenderer : MonoBehaviour
 		
 	}
 
-    public void loadMetaData(PageMetaData pageData/*, bool isLeft = true*/)
+    public void OnInputClicked(InputClickedEventData eventData)
+    {
+        gameObject.transform.parent.gameObject.SetActive(false);
+    }
+
+        public void loadMetaData(PageMetaData pageData/*, bool isLeft = true*/)
     {
         //if(isLeft)
         //    sidePanel.transform.localPosition = new Vector3(12,0,0);

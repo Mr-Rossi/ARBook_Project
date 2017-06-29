@@ -13,7 +13,13 @@ public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
     public void Update()
     {
         if (currentMetaData.Type == ElementType.ASSET)
+        {
             GetComponent<MeshRenderer>().enabled = false;
+            if (activeElement)
+            {
+                transform.GetChild(1).transform.Rotate(0, 0, 4 * Time.deltaTime);
+            }
+        }
     }
 
     public void OnInputClicked(InputClickedEventData eventData)
@@ -86,22 +92,22 @@ public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
                 GetComponent<Renderer>().material.mainTexture = www.texture;
                 break;
             case ElementType.AUDIO:
-                GetComponentInChildren<TextMesh>().text = elementData.Url;
+                GetComponentInChildren<TextMesh>().text = elementData.Text;
                 GetComponent<AudioSource>().clip = www.GetAudioClip();
-                GetComponent<AudioSource>().Play();
+                //GetComponent<AudioSource>().Play();
                 break;
-            case ElementType.VIDEO: //TODO find out why audio is not working
+            case ElementType.VIDEO: //NOT WORKING ON HOLOLENS
                 VideoPlayer vp = GetComponent<VideoPlayer>();
                 AudioSource audios = GetComponent<AudioSource>();
                 vp.url = elementData.Url;
                 vp.EnableAudioTrack(0, true);
                 vp.SetTargetAudioSource(0, audios);
                 vp.Prepare();
-                vp.Play();
-                audios.Play();
+                //vp.Play();
+                //audios.Play();
                 break;
             case ElementType.TEXT:
-                GetComponentInChildren<TextMesh>().text = www.text;
+                GetComponentInChildren<TextMesh>().text = elementData.Text;
                 break;
             case ElementType.ASSET:
                 GetComponent<MeshRenderer>().enabled = false;
@@ -112,7 +118,7 @@ public class ElementInformationRenderer : MonoBehaviour, IInputClickHandler
 
     void cleanPanel()
     {
-        activeElement = true;
+        activeElement = false;
         GetComponent<Renderer>().enabled = true;
         GetComponentInChildren<TextMesh>().text = "";
         GetComponent<Renderer>().material.mainTexture = null;
