@@ -1,0 +1,36 @@
+{
+	"Pages": [{
+			"TopElement": {
+				"Url": "warthogs",
+				"Type": 4,
+				"Text": ""
+			},
+			"BottomElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Distribution_P._africanus.svg/2000px-Distribution_P._africanus.svg.png",
+				"Type": 0,
+				"Text": ""
+			},
+			"SideElement": {
+				"Url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Schwein_Warzenschwein_Phacocherus_aethiopicus0509014.jpg",
+				"Type": 0,
+				"Text": ""
+			}
+		}, {
+			"TopElement": {
+				"Url": "warthogs",
+				"Type": 4,
+				"Text": ""
+			},
+			"BottomElement": {
+				"Url": "https://www.dl.dropboxusercontent.com/s/9obwxsr5nyfk3a7/gruppen.png",
+				"Type": 0,
+				"Text": ""
+			},
+			"SideElement": {
+				"Url": "https://www.dl.dropboxusercontent.com/s/y3fc5appfqvbe4b/grasen.png",
+				"Type": 0,
+				"Text": ""
+			}
+		}
+	]
+}
