@@ -23,6 +23,7 @@ public class VuMarkHandler : MonoBehaviour
     public string ebookPath;
     public string pageName;
     public string metaName;
+    public bool isTablet = false;
     //public string ebookMetaDataPath;
     public int mTexOffset=0;
     public List<VuMarkAbstractBehaviour> updatedBehaviours;
@@ -45,54 +46,14 @@ public class VuMarkHandler : MonoBehaviour
     {
         mIdPanel = GetComponent<PanelShowHide>();
 
+        StartCoroutine(GetMetaCoroutine());
+
         // register callbacks to VuMark Manager
         mVuMarkManager = TrackerManager.Instance.GetStateManager().GetVuMarkManager();
         mVuMarkManager.RegisterVuMarkDetectedCallback(OnVuMarkDetected);
         mVuMarkManager.RegisterVuMarkLostCallback(OnVuMarkLost);
 
-        mTextures = new List<Texture>();
-        int pageCount = 0;
-
-        while (true)
-        {
-                pageCount++;
-                Texture tex = Resources.Load<Texture>(ebookPath + pageName + pageCount);
-                if (tex != null)
-                    mTextures.Add(tex);
-                else
-                {
-                    break;
-                }
-        }
-
-        //Debug.Log("Pages" + mTextures.Count);
-
-        //ebookMetaData = JsonUtility.FromJson<EbookMetaData>(File.ReadAllText(ebookMetaDataPath));
-        ebookMetaData = JsonUtility.FromJson<EbookMetaData>(Resources.Load<TextAsset>(ebookPath+metaName).text);
-
-        //Debug.Log(ebookMetaData.Pages[0].TopElement.Url+ ebookMetaData.Pages[0].TopElement.Type);
-
-        /*ElementMetaData element1 = new ElementMetaData
-        {
-            Type = ElementType.IMAGE,
-            Url = "http://www.gaiahealthblog.com/wordpress1/wp-content/uploads/2014/03/pride_prejudice.jpg"
-        };
-        ElementMetaData element2 = new ElementMetaData
-        {
-            Type = ElementType.IMAGE,
-            Url = "http://therustbeltchronicles.com/wp-content/uploads/2016/02/zz2.jpg"
-        };
-        ElementMetaData element3 = new ElementMetaData
-        {
-            Type = ElementType.AUDIO,
-            Url = "https://upload.wikimedia.org/wikipedia/commons/a/aa/White_noise.ogg"
-        };
-
-        PageMetaData page = new PageMetaData { BottomElement = element1, SideElement = element2, TopElement = element3 };
-        EbookMetaData ebook = new EbookMetaData { Pages = new PageMetaData[] { page, page } };
-
-        Debug.Log(JsonUtility.ToJson(ebook));
-        File.WriteAllText(ebookMetaDataPath, JsonUtility.ToJson(ebook));*/
+        
     }
 
     void Update()
@@ -242,8 +203,10 @@ public class VuMarkHandler : MonoBehaviour
                     {
                         //bhvr.GetComponentInChildren<BrowserMaterialComponent>().indexOffset = vuMarkInt + mTexOffset;
                         //StartCoroutine(bhvr.GetComponentInChildren<BrowserMaterialComponent>().LoadContent());
-                        //bhvr.GetComponentInChildren<MeshRenderer>().enabled = false;
-                        bhvr.GetComponentInChildren<MeshRenderer>().material.mainTexture = mTextures[vuMarkInt + mTexOffset];
+                        if(isTablet)
+                            bhvr.GetComponentInChildren<MeshRenderer>().enabled = false;
+                        else
+                            bhvr.GetComponentInChildren<MeshRenderer>().material.mainTexture = mTextures[vuMarkInt + mTexOffset];
                         bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset]/*, (vuMarkInt + mTexOffset)%2==0*/);
                         updatedBehaviours.Add(bhvr);
                     }
@@ -307,6 +270,35 @@ public class VuMarkHandler : MonoBehaviour
         // Then we turn the texture into a Sprite
         Rect rect = new Rect(0, 0, texture.width, texture.height);
         return Sprite.Create(texture, rect, new Vector2(0.5f, 0.5f));
+    }
+
+    private IEnumerator GetMetaCoroutine()
+    {
+        WWW www = new WWW("https://dl.dropboxusercontent.com/s/9pt8x0schhl1gng/book.txt");
+        yield return www;
+        string[] temp = www.text.Split('\n');
+        isTablet = bool.Parse(temp[0].Substring(0, temp[0].Length - 1));
+        ebookPath = temp[1].Substring(0, temp[1].Length - 1);
+        pageName = temp[2].Substring(0, temp[2].Length - 1);
+        metaName = temp[3].Substring(0, temp[3].Length - 1);
+        Debug.Log("HOLA" +isTablet+ ";"+ ebookPath + ";" + pageName + ";" + metaName);
+
+        mTextures = new List<Texture>();
+        int pageCount = 0;
+
+        while (true)
+        {
+            pageCount++;
+            Texture tex = Resources.Load<Texture>(ebookPath + pageName + pageCount);
+            if (tex != null)
+                mTextures.Add(tex);
+            else
+            {
+                break;
+            }
+        }
+
+        ebookMetaData = JsonUtility.FromJson<EbookMetaData>(Resources.Load<TextAsset>(ebookPath + metaName).text);
     }
 
 #endregion // PRIVATE_METHODS
