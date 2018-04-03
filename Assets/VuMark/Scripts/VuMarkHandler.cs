@@ -24,6 +24,7 @@ public class VuMarkHandler : MonoBehaviour
     public string pageName;
     public string metaName;
     public bool isTablet = false;
+    public bool showMeta = true;
     //public string ebookMetaDataPath;
     public int mTexOffset=0;
     public List<VuMarkAbstractBehaviour> updatedBehaviours;
@@ -208,7 +209,16 @@ public class VuMarkHandler : MonoBehaviour
                             //bhvr.GetComponentInChildren<MeshRenderer>().enabled = false;
                         else
                             bhvr.GetComponentInChildren<MeshRenderer>().material.mainTexture = mTextures[vuMarkInt + mTexOffset];
-                        bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset]/*, (vuMarkInt + mTexOffset)%2==0*/);
+                        if (showMeta)
+                            bhvr.GetComponentInChildren<MetaInformationRenderer>().loadMetaData(ebookMetaData.Pages[vuMarkInt + mTexOffset]/*, (vuMarkInt + mTexOffset)%2==0*/);
+                        else
+                        {
+                            foreach (Transform child in bhvr.transform.GetChild(0))
+                            {
+                                GameObject.Destroy(child.gameObject);
+                            }
+                        }
+                            //bhvr.transform.GetChild(0).
                         updatedBehaviours.Add(bhvr);
                     }
                 }
@@ -282,6 +292,11 @@ public class VuMarkHandler : MonoBehaviour
         ebookPath = temp[1].Substring(0, temp[1].Length - 1);
         pageName = temp[2].Substring(0, temp[2].Length - 1);
         metaName = temp[3].Substring(0, temp[3].Length - 1);
+        if (metaName.Length == 0)
+            showMeta = false;
+        else
+            showMeta = true;
+
         Debug.Log("HOLA" +isTablet+ ";"+ ebookPath + ";" + pageName + ";" + metaName);
 
         mTextures = new List<Texture>();
@@ -299,7 +314,8 @@ public class VuMarkHandler : MonoBehaviour
             }
         }
 
-        ebookMetaData = JsonUtility.FromJson<EbookMetaData>(Resources.Load<TextAsset>(ebookPath + metaName).text);
+        if(showMeta)
+            ebookMetaData = JsonUtility.FromJson<EbookMetaData>(Resources.Load<TextAsset>(ebookPath + metaName).text);
     }
 
 #endregion // PRIVATE_METHODS
